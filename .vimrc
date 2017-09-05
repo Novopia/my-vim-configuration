@@ -65,7 +65,6 @@ set splitbelow
 " nnoremap <C-l> :Unite file file_rec buffer file_mru<CR>
 " nnoremap <C-;> :Unite line<CR>
 
-
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
