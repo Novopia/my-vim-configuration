@@ -40,7 +40,9 @@ set background=light
 set number
 
 " Link the internal clipboard to the system's 
-set clipboard=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 
 " Highlighting the serached items
 set hlsearch
@@ -58,7 +60,6 @@ nmap <F7> :NERDTree<CR>
 " More intuitive split directions
 set splitright
 set splitbelow
-
 
 " Unite
 " nnoremap <C-p> :Unite file_rec<CR>
@@ -86,4 +87,9 @@ function! s:unite_settings()
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
+" Experiment
+set ruler                           " Bottom right corner of the status line
+set textwidth=80              " Maximum line text width
+set colorcolumn=80         " Highlight column at 80 char
+set visualbell                    " No sounds
 
