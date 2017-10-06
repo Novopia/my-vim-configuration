@@ -1,6 +1,3 @@
-" For tpope/vim-pathogen
-"execute pathogen#infect()
-
 " vim-plug 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -10,34 +7,33 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
-Plug 'shougo/unite.vim'
-Plug 'shougo/neomru.vim'
-Plug 'shougo/unite-outline'
-Plug 'shougo/neoyank.vim'
-Plug 'shougo/vimproc.vim', {'do' : 'make'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'ervandew/supertab'
+" Seamless navigation between tmux and vim!
+" I think it basically figure out something like "Oh, there
+" is a tmux pane on my left so I should forward this
+" 'switch-to-left' key stroke combo to tmux
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'mhinz/vim-startify'
+Plug 'raimondi/delimitmate'
+Plug 'mbbill/undotree'
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
+" Necessary for lots of cool vim things
+set nocompatible
 
 " Syntax
 syntax on
 filetype plugin indent on
 
 " Tabs
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set expandtab
 
-" More intuitive cursor movements
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
-
-" Theme & Font
-set background=light
-
-" Line numbers
-set number
+set number relativenumber " Line numbers
 
 " Link the internal clipboard to the system's 
 if $TMUX == ''
@@ -47,49 +43,27 @@ endif
 " Highlighting the serached items
 set hlsearch
 
-" NerdTree/Tagbar
-" nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTree<CR>
-
-" Navigation
-" nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
-
 " More intuitive split directions
 set splitright
 set splitbelow
 
-" Unite
-" nnoremap <C-p> :Unite file_rec<CR>
-" nnoremap <C-l> :Unite file file_rec buffer file_mru<CR>
-" nnoremap <C-;> :Unite line<CR>
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <leader>l :<C-u>Unite -no-split -buffer-name=line -start-insert line<CR>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
-
 " Experiment
-set ruler                           " Bottom right corner of the status line
-set textwidth=80              " Maximum line text width
-set colorcolumn=80         " Highlight column at 80 char
-set visualbell                    " No sounds
+set ruler      " Bottom right corner of the status line
+set textwidth=80        " Maximum line text width
+set colorcolumn=80      " Highlight column at 80 char
 
+" No sounds
+set visualbell
+
+" Auto change directory to the current file
+autocmd BufEnter * silent! lcd %:p:h
+
+" Remap Leader Key
+nnoremap <space> <Nop>
+let mapleader = " "
+
+"
+source $HOME/.vim/shortcuts.vim
+source $HOME/.vim/performance.vim
+source $HOME/.vim/plugins.vim
+source $HOME/.vim/theme.vim
