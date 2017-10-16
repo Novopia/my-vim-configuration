@@ -10,20 +10,19 @@ Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'ervandew/supertab'
-" Seamless navigation between tmux and vim!
-" I think it basically figure out something like "Oh, there
-" is a tmux pane on my left so I should forward this
-" 'switch-to-left' key stroke combo to tmux
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 Plug 'raimondi/delimitmate'
 Plug 'mbbill/undotree'
 Plug 'flazz/vim-colorschemes'
+Plug 'moll/vim-bbye'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-gitgutter'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " Necessary for lots of cool vim things
 set nocompatible
-
 " Syntax
 syntax on
 filetype plugin indent on
@@ -67,3 +66,4 @@ source $HOME/.vim/shortcuts.vim
 source $HOME/.vim/performance.vim
 source $HOME/.vim/plugins.vim
 source $HOME/.vim/theme.vim
+source $HOME/.vim/cscope_maps.vim
