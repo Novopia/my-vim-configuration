@@ -24,7 +24,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-unimpaired'
-Plug 'valloric/listtoggle'
 call plug#end()
 
 " Necessary for lots of cool vim things

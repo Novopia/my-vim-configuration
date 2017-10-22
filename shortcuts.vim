@@ -23,3 +23,8 @@ nnoremap tl :tablast<CR>
 " Buffers
 nnoremap <leader>[ :bp<CR> 
 nnoremap <leader>] :bn<CR> 
+
+" Quickfix List
+nnoremap <leader>l :copen<CR>
+
+
