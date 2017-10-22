@@ -9,7 +9,7 @@ Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'mhinz/vim-startify'
 Plug 'raimondi/delimitmate'
 Plug 'mbbill/undotree'
@@ -19,6 +19,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'majutsushi/tagbar'
+Plug 'valloric/youcompleteme'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'tpope/vim-unimpaired'
+Plug 'valloric/listtoggle'
 call plug#end()
 
 " Necessary for lots of cool vim things
@@ -36,7 +42,7 @@ set number relativenumber " Line numbers
 
 " Link the internal clipboard to the system's 
 if $TMUX == ''
-    set clipboard+=unnamed
+set clipboard+=unnamed
 endif
 
 " Highlighting the serached items
