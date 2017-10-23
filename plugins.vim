@@ -67,3 +67,5 @@ nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
 
+" CScope
+set cscopequickfix=s-,c-,t-
