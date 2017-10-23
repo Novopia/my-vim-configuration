@@ -19,7 +19,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <Leader>q :Bdelete<CR>
 
 " TagBar
-nmap <C-m> :TagbarToggle<CR>
+nmap <Leader>tt :TagbarToggle<CR>
 
 
 " Plugin 'SirVer/ultisnips'
@@ -66,3 +66,4 @@ nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
+
