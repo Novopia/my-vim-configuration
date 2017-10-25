@@ -27,8 +27,8 @@ export PATH="${PATH}:/home/xy24/bin:/home/xy24/mongo-bin/link"
 
 export CSCOPE_EDITOR=vim
 # export TERM=xterm-256color
-export WORKSPACE="/home/xy24/projects"
-export DOTFILES="/home/xy24/projects/dotfiles"
+export WORKSPACE="~/projects"
+export DOTFILES="~/projects/dotfiles"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
