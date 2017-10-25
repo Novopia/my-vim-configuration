@@ -23,7 +23,7 @@ fi
 # export GOROOT="/usr/local/go" 
 # PATH variable
 # export PATH="${PATH}:${JAVA_HOME}/bin:${ANT_HOME}/bin"
-export PATH="${PATH}:~/bin"
+export PATH="${PATH}:/home/xy24/bin:/home/xy24/mongo-bin/link"
 
 export CSCOPE_EDITOR=vim
 # export TERM=xterm-256color
@@ -53,7 +53,7 @@ alias refresh="scons compiledb; ./mongo-cscope.sh"
 alias build-ninja="python $WORKSPACE/mongo/buildscripts/scons.py --dbg CC=clang CXX=clang++ \
 CCFLAGS='-Wa,--compress-debug-sections' \
  MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
-  VARIANT_DIR=dbg --modules=ninja \
+  VARIANT_DIR=iceninja --modules=ninja \
    build.ninja"
 # scons icecream.ninja --modules=ninja VARIANT_DIR=iceninja MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown CCFLAGS=-gsplit-dwarf --variables-files=etc/scons/mongodbtoolchain_gcc.vars --icecream
 alias make-mongo="build-ninja; ./build.ninja -j300 core"
