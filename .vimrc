@@ -24,6 +24,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-unimpaired'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " Necessary for lots of cool vim things
@@ -72,3 +73,6 @@ source $HOME/.vim/performance.vim
 source $HOME/.vim/plugins.vim
 source $HOME/.vim/theme.vim
 source $HOME/.vim/cscope_maps.vim
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'

@@ -7,8 +7,8 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 " FZF
-map <leader>f :Files<CR>
-map <leader>g :GFiles<CR>
+map <leader>ff :Files<CR>
+map <leader>gg :GFiles<CR>
 map <leader>b :Buffers<CR>
 map <leader>c :Colors<CR>
 " Use fzf for whole line completion
@@ -42,7 +42,7 @@ let g:ycm_key_list_accept_completion = ['<C-y>']
 
 " FSwitch
 " Switch to the file and load it into the current window
-nmap <silent> <Leader>mf :FSHere<cr>
+nmap <silent> <Leader>mm :FSHere<cr>
 
 " Switch to the file and load it into the window on the right
 nmap <silent> <Leader>ml :FSSplitRight<cr>
