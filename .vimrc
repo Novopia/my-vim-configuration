@@ -38,7 +38,7 @@ set tabstop=8
 set shiftwidth=4
 set expandtab
 
-set number relativenumber " Line numbers
+set number " Line numbers
 
 " Link the internal clipboard to the system's 
 if $TMUX == ''
