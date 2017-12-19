@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 set -e
 
@@ -7,8 +7,8 @@ current_dir=$(pwd $0)
 
 files=$(find . -maxdepth 1 -not -name 'README.md' -not -name '.*' -not -name 'setup.sh')
 
-if [ ! [-a "~/.oh-my-zsh"]]; then
-  git clone "git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh"
+if [ ![ -a "~/.oh-my-zsh"] ]; then
+  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
 fi
 
 for file in $files; do
