@@ -24,7 +24,7 @@ Configuration for tmux.
 
 ### vim
 
-Vim directory
+Vim directory. I use vim-plug as the plugin manager.
 
 ### vimrc
 
