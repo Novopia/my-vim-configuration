@@ -7,7 +7,7 @@ current_dir=$(pwd $0)
 
 files=$(find . -maxdepth 1 -not -name 'README.md' -not -name '.*' -not -name 'setup.sh')
 
-if [ ![ -a "~/.oh-my-zsh"] ]; then
+if [ ![ -e "~/.oh-my-zsh"] ]; then
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh;
 fi
 
