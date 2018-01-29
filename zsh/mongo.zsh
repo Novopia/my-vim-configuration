@@ -28,6 +28,11 @@ CPPPATH=/usr/local/opt/openssl/include LIBPATH=/usr/local/opt/openssl/lib \
     VARIANT_DIR=dbg --modules=ninja,enterprise --icecream \
      build-enterprise.ninja"
 
+alias build-ninja-ice-dynamic="python2 $WORKSPACE/mongo/buildscripts/scons.py --config=force \
+--modules=ninja --icecream --variables-files=etc/scons/mongodbtoolchain_gcc.vars \
+--link-model=dynamic VARIANT_DIR=iceninja CCFLAGS=-gsplit-dwarf \
+--link-model=object MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown build.ninja"
+
 alias make-mongo-ice="build-ninja-ice; ./build.ninja -j300 core"
 alias make-mongo-gdb="build-ninja-gdb; ./build.ninja -j300 core"
 alias make-enterprise="build-enterprise-ninja; ./build-enterprise.ninja -j300 core"
@@ -42,7 +47,9 @@ alias m="cd ~/projects/mongo"
 # alias gdb="xterm -j -geometry 200x70 -e /opt/mongodbtoolchain/gdb/bin/gdb --tui --tty `tty`"
 alias gdb="/opt/mongodbtoolchain/gdb/bin/gdb --tui "
 alias lint="python buildscripts/clang_format.py lint-all"
-
+alias rs="rm -rf ~/data/db/*"
+alias run="./mongod --port 40000 --dbpath ~/data/db"
+ 
 # Environment variables
 # For gdb -tui remotely
 export DISPLAY="127.0.0.1:10.0"
