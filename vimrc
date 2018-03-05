@@ -25,6 +25,7 @@ Plug 'honza/vim-snippets'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-unimpaired'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 " Necessary for lots of cool vim things

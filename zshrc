@@ -28,6 +28,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 export PATH="/home/xy24/bin:/home/xy24/mongo-bin/link:${PATH}"
 export CSCOPE_EDITOR=vim
 export DOTFILES=$HOME/projects/dotfiles
+export WORKSPACE=$HOME/projects
 
 # Other configurations
 # 10ms for key sequences
