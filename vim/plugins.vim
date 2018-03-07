@@ -70,3 +70,7 @@ xmap > ]
 
 " CScope
 set cscopequickfix=s-,c-,t-
+
+" Clang-format
+let g:clang_format#detect_style=1
+autocmd FileType c,cpp let g:clang_format#auto_format=1
