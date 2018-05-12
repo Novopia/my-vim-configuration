@@ -26,6 +26,9 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-unimpaired'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'pangloss/vim-javascript'
+Plug 'edkolev/tmuxline.vim'
+Plug 'thaerkh/vim-workspace'
 call plug#end()
 
 " Necessary for lots of cool vim things
@@ -48,6 +51,7 @@ endif
 
 " Highlighting the serached items
 set hlsearch
+" hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
 " More intuitive split directions
 set splitright
@@ -68,6 +72,9 @@ autocmd BufEnter * silent! lcd %:p:h
 nnoremap <space> <Nop>
 let mapleader = " "
 
+" Share clipboard with system
+set clipboard=unnamedplus
+
 "
 source $HOME/.vim/shortcuts.vim
 source $HOME/.vim/performance.vim
@@ -77,3 +84,9 @@ source $HOME/.vim/cscope_maps.vim
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" Tmuxline
+let g:airline#extensions#tmuxline#enabled = 0
+
+" Auto save
+set autowriteall

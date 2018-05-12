@@ -25,7 +25,25 @@ nnoremap <leader>[ :bp<CR>
 nnoremap <leader>] :bn<CR> 
 
 " Quickfix List
-nnoremap <leader>l :copen<CR>
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec('cclose')
+      return
+    endif
+  endfor
+  exec('copen')
+endfunction
+
+nmap <leader>l :call ToggleList("Quickfix List")<CR>
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$

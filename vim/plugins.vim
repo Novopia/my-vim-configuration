@@ -9,6 +9,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " FZF
 map <leader>f :Files<CR>
 map <leader>g :GFiles<CR>
+map <leader>r :GFiles?<CR>
 map <leader>b :Buffers<CR>
 map <leader>c :Colors<CR>
 map <leader>h :History<CR>
@@ -73,4 +74,7 @@ set cscopequickfix=s-,c-,t-
 
 " Clang-format
 let g:clang_format#detect_style=1
-autocmd FileType c,cpp let g:clang_format#auto_format=1
+autocmd FileType c,cpp,javascript let g:clang_format#auto_format=1
+
+" Vim-workspace
+nnoremap <leader>s :ToggleWorkspace<CR>
