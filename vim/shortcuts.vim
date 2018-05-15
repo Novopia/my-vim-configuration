@@ -75,3 +75,4 @@ map <Leader>= <C-w>=
 " and ask which one to jump to
 nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
+cnoreabbrev gg Ggrep
