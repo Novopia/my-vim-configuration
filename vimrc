@@ -29,6 +29,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'pangloss/vim-javascript'
 Plug 'edkolev/tmuxline.vim'
 Plug 'thaerkh/vim-workspace'
+Plug 'pbogut/fzf-mru.vim'
 call plug#end()
 
 " Necessary for lots of cool vim things

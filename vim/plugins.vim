@@ -78,3 +78,6 @@ autocmd FileType c,cpp,javascript let g:clang_format#auto_format=1
 
 " Vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
+
+" Fzf-mru
+nnoremap <leader>p :FZFMru<cr>
