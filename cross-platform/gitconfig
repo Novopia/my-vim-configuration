@@ -1,0 +1,15 @@
+[user]
+	name = Xiangyu Yao
+	email = xiangyu.yao@mongodb.com
+[alias]
+        amend = "!git add -u && git commit --amend --no-edit"
+        edit-unmerged = \
+            "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+        add-unmerged = \
+            "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+[core]
+	excludesfile = /home/xy24/.gitignore_global
+[pager]
+	branch = false
+        status = false
+        grep = false

@@ -1,0 +1,26 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	pager = less
+[remote "origin"]
+	url = git@github.com:mongodb/mongo.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[remote "xy24"]
+	url = git@github.com:xy24/mongo.git
+	fetch = +refs/heads/*:refs/remotes/xy24/*
+[alias]
+        backport = "!git cherry-pick -x `git log master --grep=$* | grep ^commit | cut -d' ' -f 2` #" 
+[branch "v4.0"]
+	remote = origin
+	merge = refs/heads/v4.0
+[branch "v3.6"]
+	remote = origin
+	merge = refs/heads/v3.6
+[branch "v3.4"]
+	remote = origin
+	merge = refs/heads/v3.4
