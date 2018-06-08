@@ -40,9 +40,6 @@ for fn in $HOME/.zsh/*; do
   source $fn
 done
 
-# Load local zshrc
-source $HOME/.zshrc.local
-
 # For fixed tmux title
 DISABLE_AUTO_TITLE="true"
 
