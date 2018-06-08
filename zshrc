@@ -26,7 +26,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 export BROWSER='google-chrome'
 export SSH_KEY_PATH="~/.ssh/id_rsa"
-export PATH="/home/xy24/bin:/home/xy24/mongo-bin/link:${PATH}"
 export CSCOPE_EDITOR=vim
 export DOTFILES=$HOME/projects/dotfiles
 export WORKSPACE=$HOME/projects
@@ -37,12 +36,15 @@ export DISPLAY=:0.0
 KEYTIMEOUT=1
 
 # Load all files in ~/.zsh
-for fn in ~/.zsh/*; do
+for fn in $HOME/.zsh/*; do
   source $fn
 done
+
+# Load local zshrc
+source $HOME/.zshrc.local
 
 # For fixed tmux title
 DISABLE_AUTO_TITLE="true"
 
 # Shortcut
-alias vimrc="vim ~/.vimrc"
+alias vimrc="vim $HOME/.vimrc"
