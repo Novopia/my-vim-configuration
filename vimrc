@@ -30,6 +30,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'edkolev/tmuxline.vim'
 Plug 'thaerkh/vim-workspace'
 Plug 'pbogut/fzf-mru.vim'
+Plug 'lyuts/vim-rtags'
+Plug 'vim-scripts/ctags.vim'
 call plug#end()
 
 " Necessary for lots of cool vim things
@@ -91,3 +93,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 
 " Auto save
 set autowriteall
+
+" Case insensitive
+set ignorecase
+set smartcase
+

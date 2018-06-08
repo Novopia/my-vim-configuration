@@ -26,6 +26,14 @@ CPPPATH=/usr/local/opt/openssl/include LIBPATH=/usr/local/opt/openssl/lib \
     VARIANT_DIR=dbg --modules=ninja,enterprise --icecream \
      build-enterprise.ninja"
 
+alias build-ninja-enterprise-asan="python $WORKSPACE/mongo/buildscripts/scons.py --allocator=system --sanitize=address --dbg --ssl \
+CPPPATH=/usr/local/opt/openssl/include LIBPATH=/usr/local/opt/openssl/lib \
+ CC=clang CXX=clang++ \
+  CCFLAGS='-Wa,--compress-debug-sections' \
+   MONGO_VERSION='0.0.0' MONGO_GIT_HASH='unknown' \
+    VARIANT_DIR=dbg --modules=ninja,enterprise --icecream \
+     build-enterprise.ninja"
+
 alias build-ninja-dynamic="python2 $WORKSPACE/mongo/buildscripts/scons.py --config=force \
 --modules=ninja --icecream \
 --link-model=dynamic VARIANT_DIR=dynamicninja CCFLAGS=-gsplit-dwarf \
@@ -38,7 +46,7 @@ alias make-enterprise="build-ninja-enterprise; ./build-enterprise.ninja -j300 co
 
 # Testing
 alias resmoke="python2 $WORKSPACE/mongo/buildscripts/resmoke.py"
-alias rsmk="resmoke --dbpath ~/data/db --basePort 40000"
+alias rsmk="./build.ninja core; resmoke --dbpath ~/data/db --basePort 40000"
 
 # Misc.
 alias merge-base="git merge-base HEAD master"
@@ -53,6 +61,10 @@ alias branch="git symbolic-ref --short HEAD"
 alias gg="git grep"
 alias z="vim ~/.zsh/mongo.zsh"
 alias cr="python ~/projects/kernel-tools/codereview/upload.py -s mongodbcr.appspot.com --jira_user=xiangyu.yao --check-clang-format --clang-format-location /usr/bin/clang-format --check-eslint --cc codereview-mongo@10gen.com,serverteam-storage@10gen.com"
+alias gdb="/opt/mongodbtoolchain/gdb/bin/gdb"
+alias rmrepl="sed '/REPL\|ASIO\|NETWORK\|FTDC\|to become available.\|to be elected./d'"
+alias rmshell="sed '/connecting to: mongodb:\/\/\|MongoDB server version: 0.0.0\|setting random seed:/d'"
+alias rmall="rmrepl | rmshell"
 
 function subject()
 {
@@ -137,3 +149,8 @@ export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
 [[ -a /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
+
+# Rtags
+export PATH="/home/xy24/projects/rtags/bin:${PATH}"
+
+workon mongo

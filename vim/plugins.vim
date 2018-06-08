@@ -81,3 +81,7 @@ nnoremap <leader>s :ToggleWorkspace<CR>
 
 " Fzf-mru
 nnoremap <leader>p :FZFMru<cr>
+
+" Rtags
+" Use QuickFix list
+let g:rtagsUseLocationList = 0
