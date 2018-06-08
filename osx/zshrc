@@ -24,12 +24,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # Environment variables
 export EDITOR='vim'
-export BROWSER='google-chrome'
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 export CSCOPE_EDITOR=vim
 export DOTFILES=$HOME/projects/dotfiles
 export WORKSPACE=$HOME/projects
 export DISPLAY=:0.0
+export PATH="$HOME/bin:$PATH"
 
 # Other configurations
 # 10ms for key sequences
@@ -39,9 +39,6 @@ KEYTIMEOUT=1
 for fn in $HOME/.zsh/*; do
   source $fn
 done
-
-# Load local zshrc
-source $HOME/.zshrc.local
 
 # For fixed tmux title
 DISABLE_AUTO_TITLE="true"
