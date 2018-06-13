@@ -43,10 +43,11 @@ alias make-mongo="build-ninja; ./build.ninja -j300 core"
 alias make-mongo-asan="build-ninja-asan; ./build-asan.ninja -j300 core"
 alias make-mongo-dbg="build-ninja-dbg; ./build-dbg.ninja -j300 core"
 alias make-enterprise="build-ninja-enterprise; ./build-enterprise.ninja -j300 core"
+alias make-mongo-dynamic="build-ninja-dynamic; ./build-dynamic.ninja core"
 
 # Testing
 alias resmoke="python2 $WORKSPACE/mongo/buildscripts/resmoke.py"
-alias rsmk="./build.ninja core; resmoke --dbpath ~/data/db --basePort 40000"
+alias rsmk="resmoke --dbpath ~/data/db --basePort 40000"
 
 # Misc.
 alias merge-base="git merge-base HEAD master"
@@ -144,13 +145,10 @@ function mgs2()
 # For gdb -tui remotely
 # export DISPLAY="127.0.0.1:10.0"
 
-# Python Virtual Environment
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
-[[ -a /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
-
 # Rtags
-export PATH="/home/xy24/projects/rtags/bin:${PATH}"
+export PATH="/home/xy24/mongo/link:/home/xy24/projects/rtags/bin:${PATH}"
+
+# NINJA status
+export NINJA_STATUS='[%f/%t (%p) %es] ' # make the ninja output even nicer
 
 workon mongo
