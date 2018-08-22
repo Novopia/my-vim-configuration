@@ -3,6 +3,8 @@
 	email = xiangyu.yao@mongodb.com
 [alias]
         amend = "!git add -u && git commit --amend --no-edit"
+        edit-unstaged = \
+            "!f() { git diff --name-only; }; vim `f`"
         edit-unmerged = \
             "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
         add-unmerged = \

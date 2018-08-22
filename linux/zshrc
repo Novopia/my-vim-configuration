@@ -29,7 +29,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 export CSCOPE_EDITOR=vim
 export DOTFILES=$HOME/projects/dotfiles
 export WORKSPACE=$HOME/projects
-export DISPLAY=:0.0
+#export DISPLAY=:0.0
 
 # Other configurations
 # 10ms for key sequences

@@ -63,7 +63,7 @@ set splitbelow
 " Experiment
 set ruler      " Bottom right corner of the status line
 set textwidth=80        " Maximum line text width
-set colorcolumn=80      " Highlight column at 80 char
+" set colorcolumn=80      " Highlight column at 80 char
 
 " No sounds
 set visualbell

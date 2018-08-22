@@ -9,12 +9,13 @@ alias refresh="scons compiledb; ./mongo-cscope.sh"
 
 # Compile
 NINJA_OPTION_BACKUP="CC=clang CXX=clang++ --modules=ninja CCFLAGS=-gsplit-dwarf --link-model=object MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown --icecream"
-NINJA_OPTION="--variables-files=etc/scons/mongodbtoolchain_gcc.vars --modules=ninja CCFLAGS=-gsplit-dwarf --link-model=object MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown --icecream"
+NINJA_OPTION="--variables-files=etc/scons/mongodbtoolchain_gcc.vars CCFLAGS=--modules=ninja CCFLAGS=-gsplit-dwarf --link-model=dynamic --allocator=system MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown --icecream"
+NINJA_OPTION_OBJECT="--variables-files=etc/scons/mongodbtoolchain_gcc.vars --opt=on --modules=ninja CCFLAGS=-gsplit-dwarf --link-model=object MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown --icecream"
+
+alias build-ninja-dynamic="python2 $WORKSPACE/mongo/buildscripts/scons.py VARIANT_DIR=dynamic_ninja $NINJA_OPTION build-dynamic.ninja"
+alias build-ninja-obj="python2 $WORKSPACE/mongo/buildscripts/scons.py VARIANT_DIR=obj_ninja $NINJA_OPTION_OBJECT build-obj.ninja"
 
 alias build-ninja-asan="python2 $WORKSPACE/mongo/buildscripts/scons.py --allocator=system --sanitize=address VARIANT_DIR=asan_ninja $NINJA_OPTION build-asan.ninja"
-
-alias build-ninja="python2 $WORKSPACE/mongo/buildscripts/scons.py VARIANT_DIR=iceninja $NINJA_OPTION build.ninja"
-
 
 alias build-ninja-dbg="python2 $WORKSPACE/mongo/buildscripts/scons.py --dbg --opt=off VARIANT_DIR=dbg_ninja $NINJA_OPTION build-dbg.ninja"
 
@@ -34,20 +35,16 @@ CPPPATH=/usr/local/opt/openssl/include LIBPATH=/usr/local/opt/openssl/lib \
     VARIANT_DIR=dbg --modules=ninja,enterprise --icecream \
      build-enterprise.ninja"
 
-alias build-ninja-dynamic="python2 $WORKSPACE/mongo/buildscripts/scons.py --config=force \
---modules=ninja --icecream \
---link-model=dynamic VARIANT_DIR=dynamicninja CCFLAGS=-gsplit-dwarf \
---link-model=object MONGO_VERSION=0.0.0 MONGO_GIT_HASH=unknown build-dynamic.ninja"
-
-alias make-mongo="build-ninja; ./build.ninja -j300 core"
 alias make-mongo-asan="build-ninja-asan; ./build-asan.ninja -j300 core"
 alias make-mongo-dbg="build-ninja-dbg; ./build-dbg.ninja -j300 core"
 alias make-enterprise="build-ninja-enterprise; ./build-enterprise.ninja -j300 core"
-alias make-mongo-dynamic="build-ninja-dynamic; ./build-dynamic.ninja core"
+alias make-mongo-dynamic="build-ninja-dynamic; ./build-dynamic.ninja -j400 core"
+alias make-mongo-obj="build-ninja-obj; ./build-obj.ninja -j400 core"
+alias make-mongo="make-mongo-dbg; cp build-dbg.ninja build.ninja; ./build.ninja -j400 core"
 
 # Testing
 alias resmoke="python2 $WORKSPACE/mongo/buildscripts/resmoke.py"
-alias rsmk="resmoke --dbpath ~/data/db --basePort 40000"
+alias rsmk="resmoke --dbpath ~/data/db --basePort 50000"
 
 # Misc.
 alias merge-base="git merge-base HEAD master"
@@ -66,6 +63,7 @@ alias gdb="/opt/mongodbtoolchain/gdb/bin/gdb"
 alias rmrepl="sed '/REPL\|ASIO\|NETWORK\|FTDC\|to become available.\|to be elected./d'"
 alias rmshell="sed '/connecting to: mongodb:\/\/\|MongoDB server version: 0.0.0\|setting random seed:/d'"
 alias rmall="rmrepl | rmshell"
+alias mongowt='wt -C "extensions=["/home/xy24/projects/wiredtiger/ext/compressors/snappy/.libs/libwiredtiger_snappy.so"],log=(compressor=snappy,path=journal)"'
 
 function subject()
 {
@@ -86,9 +84,9 @@ function evg()
 function crm()
 {
     if [[ $# -eq 2 ]]; then
-        cr --nojira --rev `merge-base`.. -t $1 -i $2
+        cr --no_oauth2_webbrowser --nojira --rev `merge-base`.. -t $1 -i $2
     elif [[ $# -eq 1 ]]; then
-        cr --rev `merge-base`.. -t $1
+        cr --no_oauth2_webbrowser --rev `merge-base`.. -t $1
     fi
 }
 
