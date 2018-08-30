@@ -32,7 +32,7 @@ do
   echo $MY_CONF
 
   # If the symlink already exists
-  if [[ -h "$SYSTEM_CONF" ]]
+  if [[ -e "$SYSTEM_CONF" ]] || [[ -h "$SYSTEM_CONF" ]]
   then
     echo "Removing existing $SYSTEM_CONF"
     rm -rf $SYSTEM_CONF
