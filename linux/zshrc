@@ -54,3 +54,4 @@ done
 
 export CC=/usr/bin/clang-3.9
 export CXX=/usr/bin/clang++-3.9
+export RDM=/usr/local/bin/rdm

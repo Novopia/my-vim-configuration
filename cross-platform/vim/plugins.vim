@@ -73,7 +73,7 @@ xmap > ]
 set cscopequickfix=s-,c-,t-
 
 " Clang-format
-let g:clang_format#detect_style=1
+let g:clang_format#detect_style_file=1
 autocmd FileType c,cpp,javascript let g:clang_format#auto_format=1
 
 " Vim-workspace
