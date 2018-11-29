@@ -85,3 +85,12 @@ nnoremap <leader>p :FZFMru<cr>
 " Rtags
 " Use QuickFix list
 let g:rtagsUseLocationList = 0
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_check_header = 1

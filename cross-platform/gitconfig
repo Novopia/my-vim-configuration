@@ -9,6 +9,7 @@
             "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
         add-unmerged = \
             "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+        backport = "!git cherry-pick -x `git log master --grep=$* | grep ^commit | cut -d' ' -f 2` #"
 [core]
 	excludesfile = /home/xy24/.gitignore_global
 [pager]

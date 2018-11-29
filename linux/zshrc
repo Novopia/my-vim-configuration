@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # Environment variables
 export EDITOR='vim'
-export BROWSER='google-chrome'
+export BROWSER='google-chrome-stable'
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 export CSCOPE_EDITOR=vim
 export DOTFILES=$HOME/projects/dotfiles
@@ -42,16 +42,24 @@ DISABLE_AUTO_TITLE="true"
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-[[ -a ~/.local/bin/virtualenvwrapper.sh ]] && source ~/.local/bin/virtualenvwrapper.sh
+[[ -a /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
 
 # Shortcut
 alias vimrc="vim $HOME/.vimrc"
+alias rr="source ~/.zshrc"
 
 # Load all files in ~/.zsh
 for fn in $HOME/.zsh/*; do
   source $fn
 done
 
-export CC=/usr/bin/clang-3.9
-export CXX=/usr/bin/clang++-3.9
-export RDM=/usr/local/bin/rdm
+export RDM=/usr/bin/rdm
+
+alias check-journal="journalctl -p 3 -xb"
+alias check-orphan-packages="pacman -Qtd"
+
+function replace-string()
+{
+    config_string='s/' $1 '/' $2 '/g'
+    sed -i $config_string $3
+}
