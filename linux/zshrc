@@ -39,14 +39,15 @@ KEYTIMEOUT=1
 DISABLE_AUTO_TITLE="true"
 
 # Python Virtual Environment
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-[[ -a /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+# [[ -a /usr/bin/virtualenvwrapper.sh ]] && source /usr/bin/virtualenvwrapper.sh
 
 # Shortcut
 alias vimrc="vim $HOME/.vimrc"
 alias rr="source ~/.zshrc"
+alias zshrc="vim $HOME/.zshrc"
 
 # Load all files in ~/.zsh
 for fn in $HOME/.zsh/*; do
@@ -60,6 +61,5 @@ alias check-orphan-packages="pacman -Qtd"
 
 function replace-string()
 {
-    config_string='s/' $1 '/' $2 '/g'
-    sed -i $config_string $3
+    find src/mongo \( -name "*.h" -o -name "*.cpp" \) -exec sed -i "s/$1/$2/g" {} \; -print
 }
