@@ -164,4 +164,4 @@ export PATH="/home/xy24/mongo/link:/home/xy24/projects/rtags/bin:${PATH}"
 # NINJA status
 export NINJA_STATUS='[%f/%t (%p) %es] ' # make the ninja output even nicer
 
-workon mongo
+# workon mongo
