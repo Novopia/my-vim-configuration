@@ -38,12 +38,6 @@ KEYTIMEOUT=1
 # For fixed tmux title
 DISABLE_AUTO_TITLE="true"
 
-# Python Virtual Environment
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
-[[ -a ~/.local/bin/virtualenvwrapper.sh ]] && source ~/.local/bin/virtualenvwrapper.sh
-
 # Shortcut
 alias vimrc="vim $HOME/.vimrc"
 
@@ -52,6 +46,4 @@ for fn in $HOME/.zsh/*; do
   source $fn
 done
 
-export CC=/usr/bin/clang-3.9
-export CXX=/usr/bin/clang++-3.9
 export RDM=/usr/local/bin/rdm

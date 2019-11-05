@@ -10,7 +10,7 @@
         add-unmerged = \
             "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 [url "ssh://git@code.byted.org"]
-       insteadOf = https://code.byted.org
+        insteadOf = https://code.byted.org
 [core]
 	excludesfile = /home/xy24/.gitignore_global
 [pager]
