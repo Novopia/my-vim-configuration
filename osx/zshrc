@@ -45,3 +45,4 @@ DISABLE_AUTO_TITLE="true"
 
 # Shortcut
 alias vimrc="vim $HOME/.vimrc"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles

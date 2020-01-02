@@ -1,6 +1,6 @@
 [user]
 	name = Xiangyu Yao
-	email = xiangyu.yao@mongodb.com
+	email = yaoxiangyu@bytedance.com
 [alias]
         amend = "!git add -u && git commit --amend --no-edit"
         edit-unstaged = \
